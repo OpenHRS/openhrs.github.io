@@ -1,9 +1,9 @@
-# The HRS App
+# OpenHRS
 *More than just a search engine.*
 
-When we designed and implemented this application, we wanted to make this more than a traditional search. We wanted to create an app that could effectively search the current Hawaii Revised Statutes in a way that was new and innovative. Our goal for this app was to echo the very essence of being more than a search engine. As result, we created a new experience for the user. 
+When we designed and implemented OpenHRS, we wanted to make this more than a traditional search. We wanted to create an app that could effectively search the current Hawaii Revised Statutes in a way that was new and innovative. 
 
-The HRS App takes into account the following issues:
+OpenHRS takes into account the following issues:
 
 * Can't effectively search the current HRS.
 * Can't find cross references in the HRS.
@@ -68,10 +68,10 @@ The next step will be finding the .apk file in the directory it was saved in; or
 automatically fetch the Android package file.
 
 Open the file and install the app.
-## About HRS App development
-The HRS App was developed as part of the [2017 Hawaii Annual Code Challenge](http://hacc.hawaii.gov).
+## About OpenHRS development
+OpenHRS was developed as part of an effort to improve the efficiency of the Hawaii State Government.
 
-During the hackathon, the team included:
+The team includes:
 
   * [Jonathan Robello](https://www.linkedin.com/in/jonathan-robello/)
   * [Terry Palomares](https://www.linkedin.com/in/terry-palomares/)
