@@ -69,7 +69,12 @@ This feature allows the user to quickly snap a photo on their mobile device and 
 ![ocr_demo](./docs/photos/ocr.gif)
 
 ## Searching nearby Laws
+This feature allows the user to use their location to view nearby laws. These laws are generated from signs that have been successfully scanned with our application.
+
+![location](./docs/photos/location.gif)
+
 # Installation
+Select the 'client' or 'server' directory to see respective local installation instructions.
 
 # About OpenHRS development
 OpenHRS was developed as part of an effort to improve the efficiency of the Hawaii State Government.
