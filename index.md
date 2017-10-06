@@ -85,3 +85,5 @@ The team includes:
   * [Terry Palomares](https://www.linkedin.com/in/terry-palomares/)
   * [Chris Oh](https://www.linkedin.com/in/christopher-oh-9a1135133/)
   * [Dan Paguirigan](https://www.linkedin.com/in/danpaguirigan/)
+  * [Derek Chan](https://www.linkedin.com/in/derek-chan-152378128/)
+  * [Kurt Noe](https://www.linkedin.com/in/kurt-noe-39ab19112/)
