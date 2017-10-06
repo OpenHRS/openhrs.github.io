@@ -4,4 +4,7 @@ description: Enhancing your search experience
 show_downloads: false
 
 gems:
-  - jekyll-mentions: https://github.com/OpenHRS
+  - jekyll-mentions
+
+jekyll-mentions:
+  base_url: https://github.com/OpenHRS
