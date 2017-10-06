@@ -1,6 +1,7 @@
 # Table of contents
 
 * [About OpenHRS](#about-openhrs)
+  * [Inspiration](#inspiration)
 * [What we built](#what-we-built)
 * [Running the app](#running-the-app)
   * [Search](#search)
@@ -11,7 +12,7 @@
 * [About OpenHRS developement](#about-openhrs-developement)
 
 # About OpenHRS
-*More than just a search engine.*
+*Your portable lawyer.*
 
 OpenHRS is the forward looking iteration of HRS App, a second place winning submission for the Hawaii Code Challenge 2017. The HRS App has been opened, in many different respects, to be improved by not only its original four developers, but by the community it was designed for. The opening of our original HRS App was the logical next step to keep it self sustaining. The HRS App was developed to effectively search the current Hawaii Revised Statutes in a way that was new and innovative. But innovation is finite if the technology behind it is restricted to a small group of students, and thus it has evolved into OpenHRS.
 
@@ -23,8 +24,31 @@ OpenHRS takes into account the following issues:
 * Not knowing what laws are relevant to your location.
 * Having to note down laws you reference daily.
 
+## Inspiration
+Our inspiration comes from our core belief that “boring” subjects aren’t destined to be boring, but are misrepresented and unimaginatively produced. When designed with creativity, anything can be fun, interesting, and yet still as enlightening.
+
+Rather than taking the easy route and creating a basic search and browse, we thought outside the box and added additional but necessary features in hopes that it’d help modernize the way the people of Hawaii build software in the future
+
 # What we built
-The very core of our application is a search engine, but in addition to that, we integrated tools that the user utilizes on a daily basis. As part of the application, we made use of optical recognition and location to further enhance the search experience. Instead of having to type the chapter and section of a statute, I could instead take a picture of it and get the result on my phone. Instead of manually figuring out what laws are relevant to my area, with a click of a button, I can see the laws nearest to my location. When we built this, we made sure to create an app at the highest level of quality. Our hope is for this app to become part of everyones lives when making legal decisions.
+We created a powerful retrieval system for Hawaii’s laws built upon the latest human computer interaction principles and mobile design patterns. What you might expect from our app is countless directories of laws to navigate through, but instead you are presented with an app elegantly designed and engineered to enhance your exploration through thousands of laws waiting to be discovered.
+
+Some issues that the current Hawaii Revised Statutes has include:
+
+* No database for nearly 20,000 statutes
+* Can't effectively search the current HRS site.
+* Can't find cross references in the HRS site.
+* Difficult to search for statutes located on signs around Hawaii.
+* Not knowing what laws are relevant to your location.
+* Having to note down laws you would like to reference in the future.
+
+To combat those issues, we implemented:
+
+* MongoDB database, with the future in mind for scalability.
+* An organized RESTful API to allow anyone to interpret our statute data.
+* Gorgeous, streamlined, user-friendly User Interface.
+* State of the art search engine.
+* Optical Character Recognition (OCR) system to allow a user to take a picture of a physical sign and receive the relevant statute.
+* Statute locations near the user for extra awareness.
 
 # Running the app
 After opening the app, you are first welcomed with the homepage:
