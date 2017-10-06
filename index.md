@@ -12,7 +12,8 @@
 * [About OpenHRS developement](#about-openhrs-developement)
 
 # About OpenHRS
-*Your portable lawyer.*
+
+[![youtube](http://img.youtube.com/vi/ysAzR5RSkQk/0.jpg)](http://www.youtube.com/watch?v=ysAzR5RSkQk)
 
 OpenHRS is the forward looking iteration of HRS App, a second place winning submission for the Hawaii Code Challenge 2017. The HRS App has been opened, in many different respects, to be improved by not only its original four developers, but by the community it was designed for. The opening of our original HRS App was the logical next step to keep it self sustaining. The HRS App was developed to effectively search the current Hawaii Revised Statutes in a way that was new and innovative. But innovation is finite if the technology behind it is restricted to a small group of students, and thus it has evolved into OpenHRS.
 
