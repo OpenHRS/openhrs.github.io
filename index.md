@@ -1,7 +1,19 @@
-# OpenHRS
+# Table of contents
+
+* [About OpenHRS](#about-openhrs)
+* [What we built](#what-we-built)
+* [Running the app](#running-the-app)
+  * [Search](#search)
+  * [Browse](#browse)
+  * [Taking a pic](#taking-a-pic)
+  * [Searching nearby Laws](#searching-nearby-laws)
+* [Installation](#installation)
+* [About OpenHRS developement](#about-openhrs-developement)
+
+# About OpenHRS
 *More than just a search engine.*
 
-When we designed and implemented OpenHRS, we wanted to make this more than a traditional search. We wanted to create an app that could effectively search the current Hawaii Revised Statutes in a way that was new and innovative. 
+When we designed and implemented OpenHRS, we wanted to make this more than a traditional search. We wanted to create an app that could effectively search the current Hawaii Revised Statutes in a way that was new and innovative.
 
 OpenHRS takes into account the following issues:
 
@@ -9,18 +21,18 @@ OpenHRS takes into account the following issues:
 * Can't find cross references in the HRS.
 * Difficult to search for statutes located on signs around Hawaii.
 * Not knowing what laws are relavant to your location.
-* Having to note down laws you reference daily. 
+* Having to note down laws you reference daily.
 
-## What we built
+# What we built
 The very core of our application is a search engine, but in addition to that, we integrated tools that the user utilizes on a daily basis. As part of the application, we made use of optical recognition and location to further enhance the search experience. Instead of having to type the chapter and section of a statute, I could instead take a picture of it and get the result on my phone. Instead of manually figuring out what laws are relevant to my area, wtih a click of a button, I can see the laws nearest to my location. When we built this, we made sure to create an app at the highest level of quality. Our hope is for this app to become part of everyones lives when making legal decisions.
 
-## Running the app
+# Running the app
 After opening the app, you are first welcomed with the homepage:
 
 ![homepage](./docs/photos/homepage.png)
 
 From there, you are able to do a general search, browse the HRS, take a picture, or search nearby laws.
-### Search
+## Search
 Using search is very easy. Just type in a term you are looking for, a chapter, section, or both chapter and section. The search engine will do its best to return the closest results.
 
 Here's an example:
@@ -31,7 +43,7 @@ Here's an example:
 
 Searching for 'speeding' yields results related to speeding.
 
-### Browse
+## Browse
 When opening browse, you will reveal the list of divisions within the HRS.
 
 ![browse_main](./docs/photos/browse_main.png)
@@ -51,15 +63,15 @@ In some sections, you may see a cross reference to another statute like this.
 You can select it to reveal information about it as well.
 
 ![cross_reference_result](./docs/photos/cross_reference_result.png)
-### Taking a Pic
+## Taking a Pic
 This feature allows the user to quickly snap a photo on their mobile device and our image recognition software will redirect the user to a found statute.
 
 ![ocr_demo](./docs/photos/ocr.gif)
 
-### Searching nearby Laws
-## Installation
+## Searching nearby Laws
+# Installation
 
-## About OpenHRS development
+# About OpenHRS development
 OpenHRS was developed as part of an effort to improve the efficiency of the Hawaii State Government.
 
 The team includes:
