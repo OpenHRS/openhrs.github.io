@@ -19,6 +19,10 @@
   * [How to install](#how-to-install-api)
   * [How to use](#how-to-use-api)
   * [How to develop](#how-to-develop-api)
+* [Web Scraper](#web-scraper)
+  * [How to install](#how-to-install-scraper)
+  * [How to use](#how-to-use-scraper)
+  * [how to develop](#how-to-develop-scraper)
 * [About OpenHRS development](#about-openhrs-development)
   * [Milestone 1: Updated Scraper and Code Cleanup](#milestone-1:-updated-scraper-and-code-cleanup)
 
@@ -248,6 +252,45 @@ Return statute information by its chapter and section
 http://localhost:3000/api/statutes/search/chaptersection?chapter=*chapter_num*&section=*section_num*
 ## How to Develop API
 Any new service you define needs to go in the service/ folder located in the src/ folder. Services need to follow the format of other services. That is, it needs to export a function. You can inject any other service or model by calling it in your services parameter. Same thing goes for models and routes. After creating the service, if it's to be referenced, add it as a factory. Otherwise if it is to be instantiated in the future, create it as a service. Contact OpenHRS if you have any questions about openhrs-api development.
+
+# Web Scraper
+A BeautifulSoup based scraper that scrapes all HRS data from http://www.capitol.hawaii.gov/hrscurrent/ using the table of contents (http://www.capitol.hawaii.gov/docs/HRS.htm) as a reference to structure and organize all the data.
+
+## How to Install
+It would be recommended to create a virtual environment to hold all the dependencies.
+
+1. To create your virtual environment through pip:
+
+Make sure you have Python 3.6+ installed on your computer
+
+```
+pip install virtualenv
+virtualenv env
+source env/bin/activate
+```
+
+2. To install the dependencies:
+```
+python pip install -r requirements.txt
+```
+## How to Use 
+3. To run it:
+```
+python create_hrs_tree.py <notext> <hrs[current|year]>
+```
+Given a year, (`current` for current year, Gregorian calendar year otherwise),
+it will output a file named `hrs[current|year][_notext].json`. When passed the
+`notext` option, it will scrape names statute names only.
+
+Example 1:
+```
+python create_hrs_tree.py notext hrscurrent
+```
+It will output a file named `hrscurrent.json` with all the current Divisions, Titles, Chapters, and Section names + numbers in a tree format.
+
+## How to Develop
+Currently any issues with the scraper are found in the issues tab, so development of any features or patching of any issues in a separate branch then a pull request made once completed is recommended. In the `scraping_testers` folder, a scoped tool scraper is provided to individually test titles, chapters, and section, so use of these is highly recommended.
+
 # About OpenHRS development
 OpenHRS was developed as part of an effort to improve the efficiency of the Hawaii State Government.
 
