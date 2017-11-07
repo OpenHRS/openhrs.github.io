@@ -9,7 +9,8 @@
   * [Taking a pic](#taking-a-pic)
   * [Searching nearby Laws](#searching-nearby-laws)
 * [Installation](#installation)
-* [About OpenHRS developement](#about-openhrs-developement)
+* [About OpenHRS development](#about-openhrs-development)
+  * [Milestone 1: Updated Scraper and Code Cleanup](#milestone-1:-updated-scraper-and-code-cleanup)
 
 # About OpenHRS
 
@@ -103,6 +104,17 @@ Select the 'client' or 'server' directory to see respective local installation i
 
 # About OpenHRS development
 OpenHRS was developed as part of an effort to improve the efficiency of the Hawaii State Government.
+
+## Milestone 1: Updated Scraper and Code Cleanup
+The bulk of this milestone consisted of improving the quality of our existing code, making it more understandable,
+maintainable, and modifiable. In essence, our code has been updated to align with our current philosophy of openness.
+Due to the nature of coding competitions, much of our code was rushed and could've been written more elegantly. On the front end,
+much of the CSS has been removed from the ionic templates and put into the respective component's scss files. Bugs that have
+crippled user experience have been patched, for example the arrow keys on each search result page have been fixed to function as they
+were meant to. Global CSS variables have been moved to their respective component files to allow for easier customization. Insignificant files
+that may confuse potential contributors have been removed.
+
+On the backend,
 
 The team includes:
 
