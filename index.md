@@ -3,12 +3,18 @@
 * [About OpenHRS](#about-openhrs)
   * [Inspiration](#inspiration)
 * [What we built](#what-we-built)
-* [Running the app](#running-the-app)
-  * [Search](#search)
-  * [Browse](#browse)
-  * [Taking a pic](#taking-a-pic)
-  * [Searching nearby Laws](#searching-nearby-laws)
-* [Installation](#installation)
+* [Mobile App](#mobile-app)
+  * [How to install](#how-to-install)
+    * [Prerequisites](#prerequisites)
+    * [Quick start](#quick-start)
+  * [How to develop](#how-to-develop)
+    * [Emulating on Android Studio](#emulating-on-android-studio)
+    * [Building the Android Project into an APK file](#building-the-android-project-into-an-apk-file)
+  * [How to use](#how-to-use)
+    * [Search](#search)
+    * [Browse](#browse)
+    * [Taking a pic](#taking-a-pic)
+    * [Searching nearby Laws](#searching-nearby-laws)
 * [About OpenHRS development](#about-openhrs-development)
   * [Milestone 1: Updated Scraper and Code Cleanup](#milestone-1:-updated-scraper-and-code-cleanup)
 
@@ -52,13 +58,88 @@ To combat those issues, we implemented:
 * Optical Character Recognition (OCR) system to allow a user to take a picture of a physical sign and receive the relevant statute.
 * Statute locations near the user for extra awareness.
 
-# Running the app
+
+# Mobile App
+Select the 'client' or 'server' directory to see respective local installation instructions.
+
+## How to install
+
+### Prerequisites
+- [Node.js](https://nodejs.org/en/download/)
+
+To install ionic, use the commands:
+
+`$ sudo npm install -g cordova`
+
+`$ sudo npm install -g ionic`
+
+### Quick start
+
+Clone the Repository
+
+`$ git clone https://github.com/OpenHRS/openhrs-mobile-app.git && cd openhrs-mobile-app`
+
+Install Packages
+
+`$ npm install`
+
+Run as Web Application
+
+`$ ionic serve`
+
+
+## How to develop
+
+### Emulating on Android Studio
+To emulate on an Android Emulator/Device to use all the features:
+
+1. Download Android Studio https://developer.android.com/studio/index.html
+2. in the client directory, use the commands:
+
+   2a. `$ ionic cordova platform add android`
+
+   2b. `$ ionic cordova build android `
+
+   2c. `$ ionic cordova emulate android` or `ionic cordova run android` (Requires Android Device)
+
+
+3.  If you receive an error in step 2c, try the following procedure:
+
+   (1) Open Android Studio.
+   (2) Click 'Open an existing Android Studio project'
+   (3) Navigate to '/platforms/android'
+   (4) Create an AVD, if you don't have one already using AVD Manager in Android Studio
+   (5) The Run button (green triangle) should be activated, click it
+   (6) Set the operating system to Android 7.0 Nougat, and choose a device that can run the OS (e.g. Google Pixel)
+   (7) Close Android Studio and repeat step 2c.
+
+
+### Building the Android Project into an APK file
+
+1. Customize the config.xml based on desired build settings, it can be found in /platforms/android/res
+2. In the openhrs-mobile-app directory, use the command:
+    $ ionic cordova build --release android
+3. Find the unsigned APK file in platforms/androids/build/outputs/apk and run an alignment utility on it
+   3a. If you have a signing key, you are finished. If not, continue on:
+4. Generate a private key for it using the keytool command that comes with the JDK:
+    $ keytool -genkey -v -keystore my-release-key.keystore -alias alias_name -keyalg RSA -keysize 2048 -validity 10000
+4a. If the tool can't be found, refer to 'http://ionicframework.com/docs/v1/guide/installation.html'
+5. Create a password for the keystore, answer its questions, and you will get a file called 'my-release-key.keystore'
+   in your current directory
+6. Run the jarsinger tool to sign the unsigned APK:
+    $ jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore my-release-key.keystore HelloWorld-release-unsigned.apk alias_name
+7. Run the zipalign tool found in '~/Library/Android/sdk/build-tools/VERSION/zipalign' and run:
+    $ zipalign -v 4 HelloWorld-release-unsigned.apk HelloWorld.apk
+8. You will now have your final release binary called "HelloWorld.apk", HelloWorld replaced by whichever name you chose
+    in your previous steps.
+
+## How to use
 After opening the app, you are first welcomed with the homepage:
 
 ![homepage](./docs/photos/homepage.png)
 
 From there, you are able to do a general search, browse the HRS, take a picture, or search nearby laws.
-## Search
+### Search
 Using search is very easy. Just type in a term you are looking for, a chapter, section, or both chapter and section. The search engine will do its best to return the closest results.
 
 Here's an example:
@@ -69,7 +150,7 @@ Here's an example:
 
 Searching for 'speeding' yields results related to speeding.
 
-## Browse
+### Browse
 When opening browse, you will reveal the list of divisions within the HRS.
 
 ![browse_main](./docs/photos/browse_main.png)
@@ -89,30 +170,24 @@ In some sections, you may see a cross reference to another statute like this.
 You can select it to reveal information about it as well.
 
 ![cross_reference_result](./docs/photos/cross_reference_result.png)
-## Taking a Pic
+### Taking a Pic
 This feature allows the user to quickly snap a photo on their mobile device and our image recognition software will redirect the user to a found statute.
 
 ![ocr_demo](./docs/photos/ocr.gif)
 
-## Searching nearby Laws
+### Searching nearby Laws
 This feature allows the user to use their location to view nearby laws. These laws are generated from signs that have been successfully scanned with our application.
 
 ![location](./docs/photos/location.gif)
 
-# Installation
-Select the 'client' or 'server' directory to see respective local installation instructions.
 
 # About OpenHRS development
 OpenHRS was developed as part of an effort to improve the efficiency of the Hawaii State Government.
 
 ## Milestone 1: Updated Scraper and Code Cleanup
-The bulk of this milestone consisted of improving the quality of our existing code, making it more understandable,
-maintainable, and modifiable. In essence, our code has been updated to align with our current philosophy of openness.
-Due to the nature of coding competitions, much of our code was rushed and could've been written more elegantly. On the front end,
-much of the CSS has been removed from the ionic templates and put into the respective component's scss files. Bugs that have
-crippled user experience have been patched, for example the arrow keys on each search result page have been fixed to function as they
-were meant to. Global CSS variables have been moved to their respective component files to allow for easier customization. Insignificant files
-that may confuse potential contributors have been removed.
+The bulk of this milestone consisted of improving the quality of our existing code, making it more understandable, maintainable, and modifiable. In essence, our code has been updated to align with our current philosophy of openness. Due to the nature of coding competitions, much of our code was rushed and could've been written more elegantly.
+
+On the front end, much of the CSS has been removed from the ionic templates and put into the respective component's scss files. Bugs that have crippled user experience have been patched, for example the arrow keys on each search result page have been fixed to function as they were meant to. Global CSS variables have been moved to their respective component files to allow for easier customization. Insignificant files that may confuse potential contributors have been removed.
 
 On the backend, we refactored our code and implemented depedency injection for our services. We also containerized our application for easier deployment. By doing this, we hope that it will be easier for the opensource community to develop and contribute to the project.
 
