@@ -15,6 +15,10 @@
     * [Browse](#browse)
     * [Taking a pic](#taking-a-pic)
     * [Searching nearby Laws](#searching-nearby-laws)
+* [Backend API](#backend-api)
+  * [How to install](#how-to-install-api)
+  * [How to use](#how-to-use-api)
+  * [How to develop](#how-to-develop-api)
 * [About OpenHRS development](#about-openhrs-development)
   * [Milestone 1: Updated Scraper and Code Cleanup](#milestone-1:-updated-scraper-and-code-cleanup)
 
@@ -181,7 +185,7 @@ This feature allows the user to use their location to view nearby laws. These la
 
 # Backend API
 NodeJS API for the Hawaii Revised Statutes App. API includes access to statute data store and HRS search engine.
-## How to Install
+## How to Install API
 These instructions will get you started with setting up the server.
 ### Prerequisites 
 #### Software
@@ -217,7 +221,7 @@ sudo npm install forever -g
 npm install
 npm start
 ```
-## How to Use
+## How to Use API
 List of URL options for getting documents. 
 
 *Note: installation not required to use api. Use dev.hrs.diblii.com instead of localhost:3000 as base.*
@@ -242,7 +246,7 @@ http://localhost:3000/api/search?input=*search*&size=*number_of_documents*
 #### Get by chapter_section
 Return statute information by its chapter and section
 http://localhost:3000/api/statutes/search/chaptersection?chapter=*chapter_num*&section=*section_num*
-## How to Develop
+## How to Develop API
 Any new service you define needs to go in the service/ folder located in the src/ folder. Services need to follow the format of other services. That is, it needs to export a function. You can inject any other service or model by calling it in your services parameter. Same thing goes for models and routes. After creating the service, if it's to be referenced, add it as a factory. Otherwise if it is to be instantiated in the future, create it as a service. Contact OpenHRS if you have any questions about openhrs-api development.
 # About OpenHRS development
 OpenHRS was developed as part of an effort to improve the efficiency of the Hawaii State Government.
