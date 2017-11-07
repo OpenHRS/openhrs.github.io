@@ -114,7 +114,7 @@ crippled user experience have been patched, for example the arrow keys on each s
 were meant to. Global CSS variables have been moved to their respective component files to allow for easier customization. Insignificant files
 that may confuse potential contributors have been removed.
 
-On the backend,
+On the backend, we refactored our code and implemented depedency injection for our services. We also containerized our application for easier deployment. By doing this, we hope that it will be easier for the opensource community to develop and contribute to the project.
 
 The team includes:
 
