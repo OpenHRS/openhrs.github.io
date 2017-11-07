@@ -60,7 +60,6 @@ To combat those issues, we implemented:
 
 
 # Mobile App
-Select the 'client' or 'server' directory to see respective local installation instructions.
 
 ## How to install
 
