@@ -24,8 +24,8 @@
   * [How to use](#how-to-use-scraper)
   * [how to develop](#how-to-develop-scraper)
 * [About OpenHRS development](#about-openhrs-development)
-  * [Milestone 1: Updated Scraper and Code Cleanup](#milestone-1:-updated-scraper-and-code-cleanup)
-  * [Milestone 2: Full Integration of Previous Years Data](#milestone-2:-full-integration-of-previous-years-data)
+  * [Milestone 1 Updated Scraper and Code Cleanup](#milestone-1-updated-scraper-and-code-cleanup)
+  * [Milestone 2 Full Integration of Previous Years Data](#milestone-2-full-integration-of-previous-years-data)
 
 # About OpenHRS
 
@@ -305,7 +305,7 @@ Currently any issues with the scraper are found in the issues tab, so developmen
 # About OpenHRS development
 OpenHRS was developed as part of an effort to improve the efficiency of the Hawaii State Government.
 
-## Milestone 1: Updated Scraper and Code Cleanup
+## Milestone 1 Updated Scraper and Code Cleanup
 The bulk of this milestone consisted of improving the quality of our existing code, making it more understandable, maintainable, and modifiable. In essence, our code has been updated to align with our current philosophy of openness. Due to the nature of coding competitions, much of our code was rushed and could've been written more elegantly.
 
 On the front end, much of the CSS has been removed from the ionic templates and put into the respective component's scss files. Bugs that have crippled user experience have been patched, for example the arrow keys on each search result page have been fixed to function as they were meant to. Global CSS variables have been moved to their respective component files to allow for easier customization. Insignificant files that may confuse potential contributors have been removed.
@@ -313,7 +313,7 @@ On the front end, much of the CSS has been removed from the ionic templates and 
 On the backend, we refactored our code and implemented dependency injection for our services. We also containerized our application for easier deployment. By doing this, we hope that it will be easier for the open source community to develop and contribute to the project.
 
 
-## Milestone 2: Full Integration of Previous Years Data
+## Milestone 2 Full Integration of Previous Years Data
 This milestone primarily consisted of integrating support for data from previous years. The idea behind this is to allow users to quickly and easily compare statutes between years to gather specific information that they may need.
 
 Slight enhancements have been made to the mobile user interface. Forward and back arrows have been added to Division and Title pages for easier navigation. In order to maintain a consistent design across the app, the arrows have been placed in a toolbar similar to that present in individual statute pages.
