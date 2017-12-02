@@ -311,6 +311,16 @@ On the front end, much of the CSS has been removed from the ionic templates and 
 
 On the backend, we refactored our code and implemented depedency injection for our services. We also containerized our application for easier deployment. By doing this, we hope that it will be easier for the opensource community to develop and contribute to the project.
 
+
+## Milestone 2: Full Integration of Previous Years Data
+This milestone primarily consisted of integrating support for data from previous years. The idea behind this is to allow users to quickly and easily compare statutes between years to gather specific information that they may need.
+
+Mobile App:
+
+Much of the scraper was refactored in order to allow for an abstract way of scraping data between all years. The structure of HTML differed between sections of years, so the scraper had to take this into account. We've also integrated test scraping files to allow for quick development of certain aspects of the scraper. A script to format the data in a datastructure was created to interpret the data easily. Although there are issues with scraping some statutes still, there arent that many (less than 1%).  
+
+Backend:
+
 The team includes:
 
   * [Jonathan Robello](https://www.linkedin.com/in/jonathan-robello/)
