@@ -191,7 +191,7 @@ This feature allows the user to use their location to view nearby laws. These la
 NodeJS API for the Hawaii Revised Statutes App. API includes access to statute data store and HRS search engine.
 ## How to Install API
 These instructions will get you started with setting up the server.
-### Prerequisites 
+### Prerequisites
 #### Software
 [NodeJS v8.5](https://nodejs.org/en/)<br>
 [MongoDB v3.4](https://www.mongodb.com/download-center)<br>
@@ -226,14 +226,14 @@ npm install
 npm start
 ```
 ## How to Use API
-List of URL options for getting documents. 
+List of URL options for getting documents.
 
 *Note: installation not required to use api. Use dev.hrs.diblii.com instead of localhost:3000 as base.*
 ### Get Documents
 #### Get by division
 Returns a list of statutes by division number <br>
 http://localhost:3000/api/division/*division_number* <br>
-#### Get by title 
+#### Get by title
 Gets a list of statutes by title number <br>
 http://localhost:3000/api/title/*title_number*
 #### Get by chapter number
@@ -315,7 +315,7 @@ On the backend, we refactored our code and implemented depedency injection for o
 ## Milestone 2: Full Integration of Previous Years Data
 This milestone primarily consisted of integrating support for data from previous years. The idea behind this is to allow users to quickly and easily compare statutes between years to gather specific information that they may need.
 
-Mobile App:
+Slight enhancements have been made to the mobile user interface. Forward and back arrows have been added to Division and Title pages for easier navigation. In order to maintain a consistent design across the app, the arrows have been placed in a toolbar similar to that present in individual statute pages.
 
 Much of the scraper was refactored in order to allow for an abstract way of scraping data between all years. The structure of HTML differed between sections of years, so the scraper had to take this into account. We've also integrated test scraping files to allow for quick development of certain aspects of the scraper. A script to format the data in a datastructure was created to interpret the data easily. Although there are issues with scraping some statutes still, there arent that many (less than 1%).  
 
