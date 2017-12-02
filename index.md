@@ -256,7 +256,8 @@ Any new service you define needs to go in the service/ folder located in the src
 # Web Scraper
 A BeautifulSoup based scraper that scrapes all HRS data from http://www.capitol.hawaii.gov/hrscurrent/ using the table of contents (http://www.capitol.hawaii.gov/docs/HRS.htm) as a reference to structure and organize all the data.
 
-## How to Install
+## Installation and Running it
+
 It would be recommended to create a virtual environment to hold all the dependencies.
 
 1. To create your virtual environment through pip:
@@ -273,20 +274,29 @@ source env/bin/activate
 ```
 python pip install -r requirements.txt
 ```
-## How to Use 
+
 3. To run it:
 ```
 python create_hrs_tree.py <notext> <hrs[current|year]>
 ```
-Given a year, (`current` for current year, Gregorian calendar year otherwise),
-it will output a file named `hrs[current|year][_notext].json`. When passed the
-`notext` option, it will scrape names statute names only.
+Given a year, it will output a file named `hrs[current|year][_notext].json`.
 
-Example 1:
+When passed the `notext` option, it will scrape names statute names only.
+
+Examples:
 ```
 python create_hrs_tree.py notext hrscurrent
 ```
-It will output a file named `hrscurrent.json` with all the current Divisions, Titles, Chapters, and Section names + numbers in a tree format.
+It will output a file named `hrscurrent.json` with all the current Divisions, Titles, Chapters, and Section names + numbers in a tree format. Notice the `notext` arg will not output section text.
+
+
+```
+python create_hrs_tree.py hrs2016
+```
+Similarly, will ouput a file named `hrs2016.json` with the data as `notext` along with section text.
+
+## Testing
+For development purposes only, testing scripts have been created named `testing_xxxx.py` where xxxx is the part to be tested. These scripts will output a similar json file named `testing_xxxx.py` with the resulting data.
 
 ## How to Develop
 Currently any issues with the scraper are found in the issues tab, so development of any features or patching of any issues in a separate branch then a pull request made once completed is recommended. In the `scraping_testers` folder, a scoped tool scraper is provided to individually test titles, chapters, and section, so use of these is highly recommended.
