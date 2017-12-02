@@ -25,6 +25,7 @@
   * [how to develop](#how-to-develop-scraper)
 * [About OpenHRS development](#about-openhrs-development)
   * [Milestone 1: Updated Scraper and Code Cleanup](#milestone-1:-updated-scraper-and-code-cleanup)
+  * [Milestone 2: Full Integration of Previous Years Data](#milestone-2:-full-integration-of-previous-years-data)
 
 # About OpenHRS
 
@@ -309,7 +310,7 @@ The bulk of this milestone consisted of improving the quality of our existing co
 
 On the front end, much of the CSS has been removed from the ionic templates and put into the respective component's scss files. Bugs that have crippled user experience have been patched, for example the arrow keys on each search result page have been fixed to function as they were meant to. Global CSS variables have been moved to their respective component files to allow for easier customization. Insignificant files that may confuse potential contributors have been removed.
 
-On the backend, we refactored our code and implemented depedency injection for our services. We also containerized our application for easier deployment. By doing this, we hope that it will be easier for the opensource community to develop and contribute to the project.
+On the backend, we refactored our code and implemented dependency injection for our services. We also containerized our application for easier deployment. By doing this, we hope that it will be easier for the open source community to develop and contribute to the project.
 
 
 ## Milestone 2: Full Integration of Previous Years Data
@@ -317,9 +318,9 @@ This milestone primarily consisted of integrating support for data from previous
 
 Slight enhancements have been made to the mobile user interface. Forward and back arrows have been added to Division and Title pages for easier navigation. In order to maintain a consistent design across the app, the arrows have been placed in a toolbar similar to that present in individual statute pages.
 
-Much of the scraper was refactored in order to allow for an abstract way of scraping data between all years. The structure of HTML differed between sections of years, so the scraper had to take this into account. We've also integrated test scraping files to allow for quick development of certain aspects of the scraper. A script to format the data in a datastructure was created to interpret the data easily. Although there are issues with scraping some statutes still, there arent that many (less than 1%).  
+Much of the scraper was refactored in order to allow for an abstract way of scraping data between all years. The structure of HTML differed between sections of years, so the scraper had to take this into account. We've also integrated test scraping files to allow for quick development of certain aspects of the scraper. A script to format the data in a data structure was created to interpret the data easily. Although there are issues with scraping some statutes still, there aren't that many (less than 1%).  
 
-As a result of the improved scraper, we were able to do more with the data than what was avaiable to us previously. By having all the data in a github repo, we no longer have a need to host a mongo database and have a dedicated service to do database querying. In addition, we see the potential of improving our search service by being able to search between all years of the hrs. We are no longer constrained by a single year and hope that we can continue to take advantage of elasticsearch capabilities.  
+As a result of the improved scraper, we were able to do more with the data than what was available to us previously. By having all the data in a github repo, we no longer have a need to host a mongo database and have a dedicated service to do database querying. In addition, we see the potential of improving our search service by being able to search between all years of the hrs. We are no longer constrained by a single year and hope that we can continue to take advantage of elastic search capabilities.  
 
 The team includes:
 
