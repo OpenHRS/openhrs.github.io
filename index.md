@@ -320,7 +320,7 @@ Slight enhancements have been made to the mobile user interface. Forward and bac
 
 Much of the scraper was refactored in order to allow for an abstract way of scraping data between all years. The structure of HTML differed between sections of years, so the scraper had to take this into account. We've also integrated test scraping files to allow for quick development of certain aspects of the scraper. A script to format the data in a data structure was created to interpret the data easily. Although there are issues with scraping some statutes still, there aren't that many (less than 1%).  
 
-As a result of the improved scraper, we were able to do more with the data than what was available to us previously. By having all the data in a github repo, we no longer have a need to host a mongo database and have a dedicated service to do database querying. In addition, we see the potential of improving our search service by being able to search between all years of the hrs. We are no longer constrained by a single year and hope that we can continue to take advantage of elastic search capabilities.  
+As a result of the improved scraper, we were able to do more with the data than what was avaiable to us previously. By having all the data in a github repo, we no longer have a need to host a mongo database and have a dedicated service to browse the HRS. In addition, we see the potential of improving our search service by being able to search between all years of the hrs. We are no longer constrained by a single year and hope that we can continue to take advantage of elasticsearch.  
 
 The team includes:
 
