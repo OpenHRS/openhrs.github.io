@@ -22,6 +22,8 @@
   * [How to install](#how-to-install-scraper)
   * [How to use](#how-to-use-scraper)
   * [how to develop](#how-to-develop-scraper)
+* [Elasticsearch](#elasticsearch)
+  * [How to load data](#how-to-load-openhrs-data)
 * [About OpenHRS development](#about-openhrs-development)
   * [Milestone 1 Updated Scraper and Code Cleanup](#milestone-1-updated-scraper-and-code-cleanup)
   * [Milestone 2 Full Integration of Previous Years Data](#milestone-2-full-integration-of-previous-years-data)
@@ -244,6 +246,21 @@ For development purposes only, testing scripts have been created named `testing_
 
 ## How to Develop
 Currently any issues with the scraper are found in the issues tab, so development of any features or patching of any issues in a separate branch then a pull request made once completed is recommended. In the `scraping_testers` folder, a scoped tool scraper is provided to individually test titles, chapters, and section, so use of these is highly recommended.
+
+# Elasticsearch
+We use elasticsearch to handle our search operations.
+## How to load OpenHRS data
+1. clone both openhrs-data and openhrs-elastic into same directories.
+
+2. Specify elasticsearch url in ELASTIC_URL environment variable.
+
+3. in openhrs-elastic repo, run
+```
+pip3 install -r requriements.txt
+
+python3 load.py or python3 load.py ssl (if using ssl)
+```
+
 
 # About OpenHRS development
 OpenHRS was developed as part of an effort to improve the efficiency of the Hawaii State Government.
