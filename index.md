@@ -16,13 +16,14 @@
     * [Taking a pic](#taking-a-pic)
     * [Searching nearby Laws](#searching-nearby-laws)
 * [Backend API](#backend-api)
-  * [How to install](#how-to-install-api)
   * [How to use](#how-to-use-api)
   * [How to develop](#how-to-develop-api)
 * [Web Scraper](#web-scraper)
   * [How to install](#how-to-install-scraper)
   * [How to use](#how-to-use-scraper)
   * [how to develop](#how-to-develop-scraper)
+* [Elasticsearch](#elasticsearch)
+  * [How to load data](#how-to-load-openhrs-data)
 * [About OpenHRS development](#about-openhrs-development)
   * [Milestone 1 Updated Scraper and Code Cleanup](#milestone-1-updated-scraper-and-code-cleanup)
   * [Milestone 2 Full Integration of Previous Years Data](#milestone-2-full-integration-of-previous-years-data)
@@ -189,70 +190,14 @@ This feature allows the user to use their location to view nearby laws. These la
 ![location](./docs/photos/location.gif)
 
 # Backend API
-NodeJS API for the Hawaii Revised Statutes App. API includes access to statute data store and HRS search engine.
-## How to Install API
-These instructions will get you started with setting up the server.
-### Prerequisites
-#### Software
-[NodeJS v8.5](https://nodejs.org/en/)<br>
-[MongoDB v3.4](https://www.mongodb.com/download-center)<br>
-[Elasticsearch v5.5](https://www.elastic.co/products/elasticsearch)<br>
-[Docker and docker-compose](https://www.docker.com/)
-#### Environment Variables
-MONGO_URI=mongodb://username:pass@host/hrs?authSource=admin
-
-ELASTIC_URI=*the_uri_for_your_elastic_search_instance*
-
-#### Importing sample data
-Sample data will be available after milestone 2 is complete.
-##### Mongo
-First create 'hrs' database and create 'hrs-locations' collection. After that, run the load script in setup/mongo.
-```
-cd /setup/mongo
-chmod +x load.sh
-./load.sh
-```
-##### Elasticsearch
-Run load script in setup/elastic
-```
-cd /setup/elastic
-chmod +x load.sh
-./load.sh
-```
-#### Installing
-To install the server
-```
-sudo npm install forever -g
-npm install
-npm start
-```
+We are no longer hosting our api. Instead, we are utilizing aws lambda to handle our I/O operations and aws api gateway to handle request.
 ## How to Use API
-List of URL options for getting documents.
-
-*Note: installation not required to use api. Use dev.hrs.diblii.com instead of localhost:3000 as base.*
-### Get Documents
-#### Get by division
-Returns a list of statutes by division number <br>
-http://localhost:3000/api/division/*division_number* <br>
-#### Get by title
-Gets a list of statutes by title number <br>
-http://localhost:3000/api/title/*title_number*
-#### Get by chapter number
-Gets a list of statutes by chapter number <br>
-http://localhost:3000/api/chapter/*chapter_number*
-#### Get by objectId
-Get a statute by its objectId <br>
-http://localhost:3000/api/id?val=*objectId*
-### Search Documents
-API usage for the hrs search engine
-#### Get by search term
-Return a list of statutes information by a search<br>
-http://localhost:3000/api/search?input=*search*&size=*number_of_documents*
-#### Get by chapter_section
-Return statute information by its chapter and section
-http://localhost:3000/api/statutes/search/chaptersection?chapter=*chapter_num*&section=*section_num*
+### Searching
+https://bn8d8e4oc9.execute-api.us-west-1.amazonaws.com/prod/search?size=*response size*&input=*search term*
+### Get by chapter and section
+https://bn8d8e4oc9.execute-api.us-west-1.amazonaws.com/prod/num?chapt=*chapter*&sec=*section*
 ## How to Develop API
-Any new service you define needs to go in the service/ folder located in the src/ folder. Services need to follow the format of other services. That is, it needs to export a function. You can inject any other service or model by calling it in your services parameter. Same thing goes for models and routes. After creating the service, if it's to be referenced, add it as a factory. Otherwise if it is to be instantiated in the future, create it as a service. Contact OpenHRS if you have any questions about openhrs-api development.
+Any additional functionality should be built with aws lambda. Any updates to existing code should comply with its programming model (Node, Python, Java, C#). If using lambda proxy integration, ensure function returns the required [json object](http://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-create-api-as-simple-proxy-for-lambda.html).
 
 # Web Scraper
 A BeautifulSoup based scraper that scrapes all HRS data from http://www.capitol.hawaii.gov/hrscurrent/ using the table of contents (http://www.capitol.hawaii.gov/docs/HRS.htm) as a reference to structure and organize all the data.
@@ -302,6 +247,21 @@ For development purposes only, testing scripts have been created named `testing_
 ## How to Develop
 Currently any issues with the scraper are found in the issues tab, so development of any features or patching of any issues in a separate branch then a pull request made once completed is recommended. In the `scraping_testers` folder, a scoped tool scraper is provided to individually test titles, chapters, and section, so use of these is highly recommended.
 
+# Elasticsearch
+We use elasticsearch to handle our search operations.
+## How to load OpenHRS data
+1. clone both openhrs-data and openhrs-elastic into same directories.
+
+2. Specify elasticsearch url in ELASTIC_URL environment variable.
+
+3. in openhrs-elastic repo, run
+```
+pip3 install -r requriements.txt
+
+python3 load.py or python3 load.py ssl (if using ssl)
+```
+
+
 # About OpenHRS development
 OpenHRS was developed as part of an effort to improve the efficiency of the Hawaii State Government.
 
@@ -320,7 +280,7 @@ Slight enhancements have been made to the mobile user interface. Forward and bac
 
 Much of the scraper was refactored in order to allow for an abstract way of scraping data between all years. The structure of HTML differed between sections of years, so the scraper had to take this into account. We've also integrated test scraping files to allow for quick development of certain aspects of the scraper. A script to format the data in a data structure was created to interpret the data easily. Although there are issues with scraping some statutes still, there aren't that many (less than 1%).  
 
-As a result of the improved scraper, we were able to do more with the data than what was available to us previously. By having all the data in a Github repo, we no longer have a need to host a mongo database and have a dedicated service to do database querying. In addition, we see the potential of improving our search service by being able to search between all years of the hrs. We are no longer constrained by a single year and hope that we can continue to take advantage of elastic search capabilities.  
+As a result of the improved scraper, we were able to do more with the data than what was available to us previously. By having all the data in a Github repo, we no longer have a need to host a mongo database and have a dedicated service to browse the HRS. In addition, we see the potential of improving our search service by being able to search between all years of the hrs. We are no longer constrained by a single year and hope that we can continue to take advantage of elastic search.  
 
 The team includes:
 
